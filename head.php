@@ -10,7 +10,7 @@ if ($conn->connect_error) {
 }
 
 function createDatabase($conn) {
-    $dbname = "test4";
+    $dbname = "SajatIskola";
     $conn->query("DROP DATABASE IF EXISTS $dbname");
     $sql = "CREATE DATABASE $dbname CHARACTER SET utf8 COLLATE utf8_hungarian_ci";
     if ($conn->query($sql) === TRUE) {
