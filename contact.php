@@ -1,31 +1,24 @@
 <?php
 require_once 'head.php';
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create_database'])) {
-    $result = createDatabase($conn);
-    echo "<div class='alert'>$result</div>";
-}
 ?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adatbázis kezelése</title>
+    <title>Kapcsolat</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <meta name="description" content="Hatékony adatbázis kezelő rendszer iskolai használatra">
+    <meta name="description" content="Kapcsolatfelvétel az iskolával">
 </head>
 
 <body>
     <header>
         <nav class="topnav" id="myTopnav">
-            <a class="active" href="display.php">Adatbázis</a>
+            <a href="display.php">Adatbázis</a>
             <a href="queries.php">Lekérdezések</a>
-            <a href="contact.php">Lépj velünk kapcsolatba</a>
-
+            <a class="active" href="contact.php">Lépj velünk kapcsolatba</a>
 
             <a href="info.php">Egyéb információk</a>
 
@@ -35,31 +28,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create_database'])) {
         </nav>
     </header>
 
-
     <main class="content">
-        <section aria-labelledby="database-title">
-            <h2 id="database-title">Adatbázis kezelése</h2>
-            <p class="lead-text">Még nincs létrehozva az adatbázisod? Hozz létre most egyet!</p>
-            <form method="post" class="form-container" onsubmit="return confirm('Biztosan létrehozza az adatbázist?');">
-
-                <button class="gombinput" type="submit" name="create_database">
-                    Adatbázis létrehozása
-                </button>
-            </form>
+        <section aria-labelledby="contact-title">
+            <h2 id="contact-title">Kapcsolat</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fa fa-map-marker"></i>
+                    <p>1234 Budapest, Iskola utca 5.</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fa fa-phone"></i>
+                    <p>+36 1 234 5678</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fa fa-envelope"></i>
+                    <p>info@sajatschool.hu</p>
+                </div>
+            </div>
         </section>
     </main>
-
-
-    <aside class="news-container" aria-labelledby="news-title">
-        <h3 id="news-title">Újdonságok</h3>
-        <div class="news-marquee" role="marquee">
-            <p>🚨 Újdonságok! Ne hagyja ki a legfrissebb adatbázis frissítéseket! 🚨</p>
-            <p>🎉 Új funkciók érhetők el az adatbázis kezelésében! 🎉</p>
-            <p>🔥 Továbbfejlesztett keresési funkciók! 🔥</p>
-            <p>🚀 Folyamatosan bővítjük! 🚀</p>
-        </div>
-    </aside>
-
 
     <script>
         document.querySelectorAll('.topnav a').forEach(function(link) {
@@ -85,6 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create_database'])) {
                 x.className = "topnav";
                 // Reset display for responsive mode
                 for (var i = 0; i < links.length; i++) {
+
                     links[i].style.display = "";
                 }
             }
