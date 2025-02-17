@@ -109,9 +109,9 @@ function insertRandomData($conn) {
     $vezeteknevek = ["Nagy", "Kis", "Szabó", "Kovács", "Tóth", "Horváth", "Varga", "Molnár"];
     $keresztnevek = ["Anna", "Péter", "László", "Katalin", "János", "Éva", "István", "Mária"];
     
-    $classIds = range(1, count($classes));
-    $totalStudents = rand(80, 120); // 80-120 tanuló összesen
-    $studentsPerClass = floor($totalStudents / count($classes)); // Egyenlő elosztás osztályonként
+    // Create 8 classes (2 per grade from 9th to 12th)
+    $classIds = range(1, 8);
+    $studentsPerClass = 15; // Pontosan 15 tanuló osztályonként
 
     foreach ($classIds as $classId) {
         for ($i = 1; $i <= $studentsPerClass; $i++) {
@@ -123,8 +123,13 @@ function insertRandomData($conn) {
         }
     }
 
+
+
     // Jegyek beszúrása
-    $studentIds = range(1, $totalStudents); // 80-120 tanuló
+    $totalStudents = 120; // 8 classes * 15 students each
+
+    $studentIds = range(1, $totalStudents);
+
     $subjectIds = range(1, count($subjects));
     foreach ($studentIds as $studentId) {
         foreach ($subjectIds as $subjectId) {
