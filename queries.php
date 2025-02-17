@@ -8,6 +8,8 @@ require_once 'head.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lekérdezések</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <meta name="description" content="Adatbázis lekérdezések">
@@ -29,21 +31,32 @@ require_once 'head.php';
     <main class="content">
         <section aria-labelledby="queries-title">
             <h2 id="queries-title">Lekérdezések</h2>
-            <!-- Content will be added later -->
+            <?php
+
+            $sql = "SELECT name from students where class_id = 1";
+            $result = $conn->query($sql);
+            //9A
+            if(mysqli_num_rows($result) > 0){
+                echo "9A";
+                echo "<br>";
+                while($row = mysqli_fetch_assoc($result)){
+                     echo $row["name"] . "<br>";
+                }
+            }
+            else{
+                echo "0 results";
+            }
+
+            mysqli_close($conn);
+            
+
+            ?>
         </section>
     </main>
 
     <script>
-        document.querySelectorAll('.topnav a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                document.querySelectorAll('.topnav a').forEach(function(a) {
-                    a.classList.remove('active');
-                });
-                this.classList.add('active');
-            });
-        });
-
         function myFunction() {
+
             var x = document.getElementById("myTopnav");
             var links = x.getElementsByTagName("a");
             
@@ -61,7 +74,3 @@ require_once 'head.php';
                 }
             }
         }
-
-    </script>
-</body>
-</html>

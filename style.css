@@ -47,8 +47,10 @@ body {
     color: var(--white);
 }
 
+
 /* Modern Button Styles */
 .gombinput {
+
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: var(--white);
     border: none;
@@ -110,27 +112,3 @@ body {
     animation: marquee 20s linear infinite;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .topnav {
-        flex-direction: column;
-        padding: 1rem;
-    }
-    
-    .topnav a {
-        width: 100%;
-        text-align: center;
-        margin: 0.5rem 0;
-    }
-    
-    .content {
-        margin: 1rem;
-        padding: 1rem;
-    }
-}
-
-/* Animations */
-@keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-}

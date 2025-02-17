@@ -3,14 +3,25 @@ $servername = "localhost";
 $username = "root"; 
 $password = ""; 
 
+$dbname = "SajatIskola";
+
+// Create connection
 $conn = new mysqli($servername, $username, $password);
 
+// Check connection
 if ($conn->connect_error) {
     die("Kapcsolódási hiba: " . $conn->connect_error);
 }
 
+// Select database if it exists, otherwise create it
+if (!$conn->select_db($dbname)) {
+    createDatabase($conn);
+}
+
+
 function createDatabase($conn) {
-    $dbname = "SajatIskola";
+    global $dbname;
+
     $conn->query("DROP DATABASE IF EXISTS $dbname");
     $sql = "CREATE DATABASE $dbname CHARACTER SET utf8 COLLATE utf8_hungarian_ci";
     if ($conn->query($sql) === TRUE) {
