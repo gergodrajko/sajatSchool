@@ -73,22 +73,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create_database'])) {
 
         function myFunction() {
             var x = document.getElementById("myTopnav");
-            var links = x.getElementsByTagName("a");
-            
-            if (x.className === "topnav") {
-                x.className += " responsive";
-                // Show all menu items
-                for (var i = 0; i < links.length; i++) {
-                    links[i].style.display = "block";
-                }
+            if (x.classList.contains("responsive")) {
+                x.classList.remove("responsive");
             } else {
-                x.className = "topnav";
-                // Reset display for responsive mode
-                for (var i = 0; i < links.length; i++) {
-                    links[i].style.display = "";
-                }
+                x.classList.add("responsive");
             }
         }
+
 
     </script>
 </body>
