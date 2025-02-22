@@ -147,18 +147,3 @@ body {
     font-weight: 500;
     animation: marquee 20s linear infinite;
 }
-.news-container {
-    overflow: hidden;
-    white-space: nowrap;
-    background-color: #f8f8f8;
-    padding: 10px;
-}
-.news-marquee {
-    display: inline-block;
-    white-space: nowrap;
-    animation: marquee 10s linear infinite;
-}
-@keyframes marquee {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
-}
