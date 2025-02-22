@@ -64,13 +64,11 @@ require_once 'head.php';
             
             if (x.className === "topnav") {
                 x.className += " responsive";
-                // Show all menu items
                 for (var i = 0; i < links.length; i++) {
                     links[i].style.display = "block";
                 }
             } else {
                 x.className = "topnav";
-                // Reset display for responsive mode
                 for (var i = 0; i < links.length; i++) {
 
                     links[i].style.display = "";

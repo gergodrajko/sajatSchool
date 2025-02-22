@@ -76,13 +76,11 @@ require_once 'head.php';
             var links = x.getElementsByTagName("a");
             
             if (x.className.includes("responsive")) {
-                // Close the menu
                 x.className = "topnav";
                 for (var i = 0; i < links.length; i++) {
                     links[i].style.display = "";
                 }
             } else {
-                // Open the menu
                 x.className += " responsive";
                 for (var i = 0; i < links.length; i++) {
                     links[i].style.display = "block";
