@@ -13,10 +13,14 @@ if ($conn->connect_error) {
     die("Kapcsolódási hiba: " . $conn->connect_error);
 }
 
-// Select database if it exists, otherwise create it
-if (!$conn->select_db($dbname)) {
-    createDatabase($conn);
+$db_selected = $conn->query("SHOW DATABASES LIKE '$dbname'");
+
+if ($db_selected->num_rows == 0) {
+    echo "<p style='color:red;'>Az adatbázis nem létezik. Kérlek, kattints az 'Adatbázis létrehozása' gombra!</p>";
+} else {
+    $conn->select_db($dbname);
 }
+
 
 
 function createDatabase($conn) {
