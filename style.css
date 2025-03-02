@@ -147,3 +147,14 @@ body {
     font-weight: 500;
     animation: marquee 20s linear infinite;
 }
+
+.form-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Térköz a form és a gomb között */
+}
+
+form {
+    display: flex;
+    gap: 10px; /* Térköz az inputok és a gomb között */
+}

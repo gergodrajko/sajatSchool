@@ -277,7 +277,7 @@ $students = $conn->query("SELECT * FROM students");
             </nav>
     </header>
 
-    <h1>Admin Kezelő</h1>
+    <h1 id="ToTheTop">Admin Kezelő</h1>
     <button onclick="document.getElementById('subjects').scrollIntoView({ behavior: 'smooth' });">
     Tantárgyak kezelése
     </button>
@@ -292,10 +292,13 @@ $students = $conn->query("SELECT * FROM students");
     </button>
     <!-- **TANTÁRGYAK KEZELÉSE** -->
     <h2 id="subjects">Tantárgyak kezelése</h2>
-    <form method="POST">
+    <div class="form-container">
+        <form method="POST">
         <input type="text" name="subject_name" placeholder="Új tantárgy neve" required>
         <button type="submit" name="add_subject">Mentés</button>
-    </form>
+        <button onclick="document.getElementById('ToTheTop').scrollIntoView({ behavior: 'smooth' });">Vissa a tetejére</button>
+    </form></div>
+
 
     <table>
         <tr>
@@ -323,11 +326,13 @@ $students = $conn->query("SELECT * FROM students");
 
     <!-- **TANULÓK KEZELÉSE** -->
     <h2 id="students">Tanulók kezelése</h2>
-    <form method="POST">
+    <div class="form-container"><form method="POST">
         <input type="text" name="student_name" placeholder="Tanuló neve" required>
         <input type="number" name="class_id" placeholder="Osztály ID" required>
         <button type="submit" name="add_student">Mentés</button>
-    </form>
+        <button onclick="document.getElementById('ToTheTop').scrollIntoView({ behavior: 'smooth' });">Vissa a tetejére</button>
+    </form></div>
+    
 
     <table>
         <tr>
@@ -351,6 +356,7 @@ $students = $conn->query("SELECT * FROM students");
                     <a href="admin.php?delete_student=<?= $row['id'] ?>" onclick="return confirm('Biztosan törölni szeretnéd?');">
                         <button style="background-color:red; color:white;">Törlés</button>
                     </a>
+                    
                 </td>
             </tr>
         <?php endwhile; ?>
@@ -359,13 +365,16 @@ $students = $conn->query("SELECT * FROM students");
     <h2 id="marks">Jegyek kezelése</h2>
 
     <!-- **ÚJ jegy hozzáadása** -->
-    <form method="POST">
+    <div class="form-container">    
+        <form method="POST">
         <input type="number" name="student_id" placeholder="Tanuló ID" required>
         <input type="number" name="subject_id" placeholder="Tantárgy ID" required>
         <input type="number" name="mark" placeholder="Jegy" required>
         <input type="date" name="date" required>
         <button type="submit" name="add_mark">Mentés</button>
-    </form>
+        <button onclick="document.getElementById('ToTheTop').scrollIntoView({ behavior: 'smooth' });">Vissa a tetejére</button>
+    </form></div>
+
 
     <h2>Jegyek listája</h2>
     <table>
@@ -385,7 +394,6 @@ $students = $conn->query("SELECT * FROM students");
                 <td><?= htmlspecialchars($row['mark']) ?></td>
                 <td><?= htmlspecialchars($row['date']) ?></td>
                 <td>
-                    <!-- MÓDOSÍTÁS FORM -->
                     <form method="POST" style="display:inline;">
                         <input type="hidden" name="mark_id" value="<?= $row['id'] ?>">
                         <input type="number" name="student_id" value="<?= htmlspecialchars($row['student_id']) ?>" required>
@@ -405,12 +413,14 @@ $students = $conn->query("SELECT * FROM students");
     </table>
 
     <h2 id="classes">Osztályok kezelése</h2>
-
-    <form method="POST">
+    <div class="form-container">    
+        <form method="POST">
         <input type="text" name="class_name" placeholder="Osztály neve" required>
         <input type="number" name="class_year" placeholder="Évfolyam" required>
         <button type="submit" name="add_class">Mentés</button>
-    </form>
+        <button onclick="document.getElementById('ToTheTop').scrollIntoView({ behavior: 'smooth' });">Vissa a tetejére</button>
+    </form></div>
+
 
     <table>
         <tr>
