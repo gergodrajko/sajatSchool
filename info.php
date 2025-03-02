@@ -20,6 +20,7 @@ require_once 'head.php';
             <a href="queries.php">Lekérdezések</a>
             <a href="contact.php">Lépj velünk kapcsolatba</a>
             <a class="active" href="info.php">Egyéb információk</a>
+            <a href="admin.php">Admin</a>
             
             <a href="javascript:void(0);" class="icon" onclick="myFunction()" aria-label="Menü megnyitása">
 
